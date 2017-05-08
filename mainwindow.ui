@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>978</width>
+    <height>535</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QPushButton" name="calculatePushButton">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>10</y>
+      <width>114</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Calculate</string>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>351</width>
+      <height>421</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="sectionDefinitionTab">
+     <attribute name="title">
+      <string>Section Definition</string>
+     </attribute>
+     <widget class="QTableWidget" name="sectionDefinitionTableWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>321</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="rowCount">
+       <number>0</number>
+      </property>
+      <property name="columnCount">
+       <number>3</number>
+      </property>
+      <column>
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Section Type</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Material</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QPushButton" name="loadSectionFromFileButton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>260</y>
+        <width>91</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>load file...</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>260</y>
+        <width>114</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>sigma - epsilon</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="surfaceTab">
+     <attribute name="title">
+      <string>Surface</string>
+     </attribute>
+     <widget class="QTableWidget" name="surfaceTableWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>100</y>
+        <width>341</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="rowCount">
+       <number>3</number>
+      </property>
+      <property name="columnCount">
+       <number>3</number>
+      </property>
+      <row/>
+      <row/>
+      <row/>
+      <column>
+       <property name="text">
+        <string>x [mm]</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>y [mm]</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Omega</string>
+       </property>
+      </column>
+      <item row="0" column="0">
+       <property name="flags">
+        <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="addRowPushButton">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>330</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="removeRowPushButton">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>330</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="surfaceNameLineEdit">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>10</y>
+        <width>221</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="surfaceNameLabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Surface Name</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="surfaceMaterialComboBox">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>38</y>
+        <width>111</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Concrete</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Structural Steel</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Fafitis Concrete</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Hollow</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="materialNameLabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>42</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Material</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="saveSurfacePushButton">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>340</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Save Surface</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="openingLabelName">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>61</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Opening</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="isOpeningCheckBox">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>70</y>
+        <width>31</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="loadSurfaceFromFileButton">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>330</y>
+        <width>101</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>load fIle...</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="fckComboBox">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>40</y>
+        <width>81</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>12 MPa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>16 MPa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>20 MPa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>25 MPa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>30 MPa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>35 MPa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>40 MPa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>45 MPa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>50 MPa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>55 MPa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>60 MPa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>70 MPa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>80 MPa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>90 MPa</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QComboBox" name="steelGradeComboBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>40</y>
+        <width>71</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>S235</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>S275</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>S355</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>S450</string>
+       </property>
+      </item>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="lineTab">
+     <attribute name="title">
+      <string>Line</string>
+     </attribute>
+     <widget class="QLabel" name="lineMaterialLineEdit">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Material</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="addRowPushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>330</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="lineMaterialComboBox">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>40</y>
+        <width>131</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Reinforcement</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>FRP</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="removeRowPushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>330</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lineNameLabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Line Name</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineNameLineEdit">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>10</y>
+        <width>221</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="lineTableWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>100</y>
+        <width>341</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="rowCount">
+       <number>2</number>
+      </property>
+      <property name="columnCount">
+       <number>3</number>
+      </property>
+      <row/>
+      <row/>
+      <column>
+       <property name="text">
+        <string>x [mm]</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>y [mm]</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>A [mm2]</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QPushButton" name="saveLinePushButton">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>340</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Save Line</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="reinforcementGradeComboBox">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>70</y>
+        <width>111</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>St3SYb500</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>RB500W</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Bst500S</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>B500SP</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="loadLineFromFileButton">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>330</y>
+        <width>101</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>load fIle...</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="fibergroupTab">
+     <attribute name="title">
+      <string>Fibergroup</string>
+     </attribute>
+     <widget class="QPushButton" name="addRowPushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>330</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="fibergroupMaterialComboBox">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>40</y>
+        <width>161</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Reinforcement Bars</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Fafitis Reinforcement</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="fibergroupNameLabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Fibergroup Name</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="removeRowPushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>330</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="fibergroupMaterialLabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Material</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="fibergroupLineEdit">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>10</y>
+        <width>201</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="fibergroupTableWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>100</y>
+        <width>341</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="rowCount">
+       <number>1</number>
+      </property>
+      <property name="columnCount">
+       <number>3</number>
+      </property>
+      <row/>
+      <column>
+       <property name="text">
+        <string>x [mm]</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>y [mm]</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>A [mm2]</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QPushButton" name="saveFibergroupPushButton">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>340</y>
+        <width>131</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Save Fibergroup</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="reinforcementOfFiberGroupsComboBox">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>70</y>
+        <width>111</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>St3SYb500</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>RB500W</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Bst500S</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>B500SP</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="loadFiberGroupFromFileButton">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>330</y>
+        <width>101</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>load fIle...</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="MyGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>60</y>
+      <width>571</width>
+      <height>401</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>10</y>
+      <width>131</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Solution Window</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>978</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>MyGraphicsView</class>
+   <extends>QGraphicsView</extends>
+   <header>mygraphicsview.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
